@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "__bit_reference": "cpp",
+        "chrono": "cpp",
+        "__tree": "cpp",
+        "bitset": "cpp",
+        "set": "cpp",
+        "limits": "cpp",
+        "random": "cpp",
+        "ratio": "cpp",
+        "valarray": "cpp",
+        "algorithm": "cpp"
+    },
+    "C_Cpp.default.compilerPath": "/usr/bin/clang"
+}
