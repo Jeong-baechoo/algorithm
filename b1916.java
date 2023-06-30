@@ -1,3 +1,5 @@
+package Graph;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -8,7 +10,7 @@ import java.util.Scanner;
  * 최단거리 문제
  * 다익스트라를 이용해서 풀기
  */
-public class ex {
+public class b1916 {
     static ArrayList<Node>[] list;
     static int[] distance;
     public static void main(String[] args) {
