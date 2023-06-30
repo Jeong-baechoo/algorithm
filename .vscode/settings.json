@@ -10,7 +10,8 @@
         "random": "cpp",
         "ratio": "cpp",
         "valarray": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "ios": "cpp"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/clang"
 }

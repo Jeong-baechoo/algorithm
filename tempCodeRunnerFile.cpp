@@ -1,1 +1,2 @@
-cout << arr[i] << " " << arr[j]<< '\n';
+cout << -1;
+    else cout << Min;
