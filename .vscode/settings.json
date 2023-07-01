@@ -11,7 +11,13 @@
         "ratio": "cpp",
         "valarray": "cpp",
         "algorithm": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "new": "cpp",
+        "__config": "cpp",
+        "__nullptr": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "regex": "cpp"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/clang"
 }
