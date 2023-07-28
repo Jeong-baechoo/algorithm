@@ -5,8 +5,8 @@ int N;
 int Count1,Count2;
 
 char Map[101][101];
-bool isCheck1[101][5];
-bool isCheck2[101][5];
+bool isCheck1[101][101];
+bool isCheck2[101][101];
 queue<pair<int,int>> qu;
 void bfs1(){
     int dx[4] = {1,-1,0,0};
@@ -55,7 +55,15 @@ void bfs2(){
                     qu.push(make_pair(nx,ny));
                     isCheck2[nx][ny] = true;        
                 }
-            } else if (Map[x][y] == Map[nx][ny])
+            } 
+            else if (Map[x][y] == 'G')
+            {
+                if(Map[nx][ny] == 'R' || Map[nx][ny] == 'G'){
+                    qu.push(make_pair(nx,ny));
+                    isCheck2[nx][ny] = true;        
+                }
+            }
+            else if (Map[x][y] == Map[nx][ny])
             {
                 qu.push(make_pair(nx,ny));
                 isCheck2[nx][ny] = true;  
