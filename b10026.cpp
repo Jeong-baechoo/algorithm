@@ -5,8 +5,7 @@ int N;
 int Count1,Count2;
 
 char Map[101][101];
-bool isCheck1[101][101];
-bool isCheck2[101][101];
+bool isCheck[101][101];
 queue<pair<int,int>> qu;
 void bfs1(){
     int dx[4] = {1,-1,0,0};
@@ -23,10 +22,10 @@ void bfs1(){
             int nx = x + dx[i];
             int ny = y + dy[i];
             if(nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
-            if(isCheck1[nx][ny]) continue;
+            if(isCheck[nx][ny]) continue;
             if(Map[nx][ny] == Map[x][y]){
                 qu.push(make_pair(nx,ny));
-                isCheck1[nx][ny] = true;
+                isCheck[nx][ny] = true;
             }
         }   
     }
@@ -48,25 +47,25 @@ void bfs2(){
             int nx = x + dx[i];
             int ny = y + dy[i];
             if(nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
-            if(isCheck2[nx][ny]) continue;
+            if(isCheck[nx][ny]) continue;
             
             if(Map[x][y] == 'R'){
                 if(Map[nx][ny] == 'R' || Map[nx][ny] == 'G'){
                     qu.push(make_pair(nx,ny));
-                    isCheck2[nx][ny] = true;        
+                    isCheck[nx][ny] = true;        
                 }
             } 
             else if (Map[x][y] == 'G')
             {
                 if(Map[nx][ny] == 'R' || Map[nx][ny] == 'G'){
                     qu.push(make_pair(nx,ny));
-                    isCheck2[nx][ny] = true;        
+                    isCheck[nx][ny] = true;        
                 }
             }
             else if (Map[x][y] == Map[nx][ny])
             {
                 qu.push(make_pair(nx,ny));
-                isCheck2[nx][ny] = true;  
+                isCheck[nx][ny] = true;  
             }
         }   
     }
@@ -87,32 +86,29 @@ int main(int argc, char const *argv[])
         }
         
     }
-    
+    // 적록색약이 아닌 경우
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
         {
-            if(!isCheck1[i][j]){
+            if(!isCheck[i][j]){
                 qu.push(make_pair(i,j));
-                isCheck1[i][j] = true;
+                isCheck[i][j] = true;
                 bfs1();
-            }
-            if(!isCheck2[i][j]){
-                qu.push(make_pair(i,j));
-                isCheck2[i][j] = true;
-                bfs2();
             }
         }
         
     }
-    
+
+    memset(isCheck, false, sizeof(isCheck));
+    //적록색약인 경우
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
         {
-            if(!isCheck2[i][j]){
+            if(!isCheck[i][j]){
                 qu.push(make_pair(i,j));
-                isCheck2[i][j] = true;
+                isCheck[i][j] = true;
                 bfs2();
             }
         }
