@@ -18,7 +18,11 @@
         "tuple": "cpp",
         "type_traits": "cpp",
         "regex": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "queue": "cpp",
+        "array": "cpp",
+        "variant": "cpp",
+        "vector": "cpp"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/clang"
 }

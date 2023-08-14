@@ -1,116 +1,20 @@
-#include<bits/stdc++.h>
-using namespace std;
-
-int N;
-int Count1,Count2;
-
-char Map[101][101];
-bool isCheck1[101][5];
-bool isCheck2[101][5];
-queue<pair<int,int>> qu;
-void bfs1(){
-    int dx[4] = {1,-1,0,0};
-    int dy[4] = {0,0,1,-1};
-
-    while (!qu.empty())
-    {
-        pair p = qu.front();
-        qu.pop();
-        int x = p.first;
-        int y = p.second;
-        for (int i = 0; i < 4; i++)
-        {
-            int nx = x + dx[i];
-            int ny = y + dy[i];
-            if(nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
-            if(isCheck1[nx][ny]) continue;
-            if(Map[nx][ny] == Map[x][y]){
-                qu.push(make_pair(nx,ny));
-                isCheck1[nx][ny] = true;
-            }
-        }   
-    }
-    Count1++;
-}
-
-void bfs2(){
-    int dx[4] = {1,-1,0,0};
-    int dy[4] = {0,0,1,-1};
-
-    while (!qu.empty())
-    {
-        pair p = qu.front();
-        qu.pop();
-        int x = p.first;
-        int y = p.second;
-        for (int i = 0; i < 4; i++)
-        {
-            int nx = x + dx[i];
-            int ny = y + dy[i];
-            if(nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
-            if(isCheck2[nx][ny]) continue;
-            
-            if(Map[x][y] == 'R'){
-                if(Map[nx][ny] == 'R' || Map[nx][ny] == 'G'){
-                    qu.push(make_pair(nx,ny));
-                    isCheck2[nx][ny] = true;        
-                }
-            } else if (Map[x][y] == Map[nx][ny])
-            {
-                qu.push(make_pair(nx,ny));
-                isCheck2[nx][ny] = true;  
-            }
-        }   
-    }
-    Count2++;
-}
-int main(int argc, char const *argv[])
-{
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-
-    cin >> N;
-
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < N; j++)
-        {
-            cin >> Map[i][j];
-        }
+int t;
+    // cin >> t;
+    // while (t--)
+    // {
+    //     int select;
+    //     cin >> select;
+    //     switch (select)
+    //     {
+    //     case 1:
+    //         int row;
+    //         cin >> row;
+    //         a[row].push_front([row].pop_back());
+    //         break;
         
-    }
-    
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < N; j++)
-        {
-            if(!isCheck1[i][j]){
-                qu.push(make_pair(i,j));
-                isCheck1[i][j] = true;
-                bfs1();
-            }
-            if(!isCheck2[i][j]){
-                qu.push(make_pair(i,j));
-                isCheck2[i][j] = true;
-                bfs2();
-            }
-        }
-        
-    }
-    
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < N; j++)
-        {
-            if(!isCheck2[i][j]){
-                qu.push(make_pair(i,j));
-                isCheck2[i][j] = true;
-                bfs2();
-            }
-        }
-        
-    }
-    cout << Count1 << " " << Count2;
+    //     case 2:
 
-    return 0;
-}
+    //     default:
+    //         break;
+    //     }
+    // }
