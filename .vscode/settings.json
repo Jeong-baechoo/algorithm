@@ -22,7 +22,19 @@
         "queue": "cpp",
         "array": "cpp",
         "variant": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "map": "cpp",
+        "numeric": "cpp",
+        "string": "cpp",
+        "iosfwd": "cpp",
+        "stack": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "locale": "cpp",
+        "__hash_table": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/clang"
 }

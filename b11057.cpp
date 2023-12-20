@@ -1,21 +1,32 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-long long dp[1005][10];
-
+int n;
+long long d[1010][10];
 int main(int argc, char const *argv[])
 {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    int n;
     cin >> n;
 
-    for (int i = 1; i <= n; ++i) {
-        dp[i][0] = 1;
-        for (int j = 1; j < 10; ++j)
-            dp[i][j] = (dp[i][j-1]+dp[i-1][j])%10007;
+    for (int i = 0; i < 10; i++)
+    {
+        d[1][i] = 1;
     }
     
+    for (int i = 2; i <= n; i++)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            for (int k = 0; k <= j; k++)
+            {
+                d[i][j] = (d[i][j] +d[i-1][k]) % 10007;
+            }
+            
+        }
+        
+    }
+    cout << accumulate(d[n],d[n]+10,0)%10007;    
     return 0;
 }
